@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remove duplicates from an array</title>
+</head>
+<body>
+  <script>
+    // Anonymous function
+    let removeDuplicates = function(arr) {
+        let result = [];
+        let seen = {};
+        for (let i = 0; i < arr.length; i++) {
+            if (!seen[arr[i]]) {
+                result.push(arr[i]);
+                seen[arr[i]] = true;
+            }
+        }
+        return result;
+    };
+
+    console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
+
+    // IIFE
+    (function(arr) {
+        let result = [];
+        let seen = {};
+        for (let i = 0; i < arr.length; i++) {
+            if (!seen[arr[i]]) {
+                result.push(arr[i]);
+                seen[arr[i]] = true;
+            }
+        }
+        console.log(result);
+    })([1, 2, 2, 3, 4, 4, 5]);
+  </script>
+  
+</body>
+</html>

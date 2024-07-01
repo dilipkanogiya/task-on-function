@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Return all the palindromes in an array</title>
+</head>
+<body>
+  <script>
+    // Anonymous function
+    let palindromes = function(arr) {
+        let result = [];
+        for (let i = 0; i < arr.length; i++) {
+            let str = arr[i];
+            let isPalindrome = true;
+            for (let j = 0; j < Math.floor(str.length / 2); j++) {
+                if (str[j] !== str[str.length - 1 - j]) {
+                    isPalindrome = false;
+                    break;
+                }
+            }
+            if (isPalindrome) {
+                result.push(str);
+            }
+        }
+        return result;
+    };
+
+    console.log(palindromes(["madam", "hello", "racecar", "world"]));
+
+    // IIFE
+    (function(arr) {
+        let result = [];
+        for (let i = 0; i < arr.length; i++) {
+            let str = arr[i];
+            let isPalindrome = true;
+            for (let j = 0; j < Math.floor(str.length / 2); j++) {
+                if (str[j] !== str[str.length - 1 - j]) {
+                    isPalindrome = false;
+                    break;
+                }
+            }
+            if (isPalindrome) {
+                result.push(str);
+            }
+        }
+        console.log(result);
+    })(["madam", "hello", "racecar", "world"]);
+</script>
+  
+</body>
+</html>
